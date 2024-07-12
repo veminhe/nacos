@@ -1,0 +1,70 @@
+2024-07-12 11:03:32.467 WARN  [main] com.alibaba.nacos.client.logging.NacosLogging.loadConfiguration:64 : Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from null
+2024-07-12 11:03:32.873 WARN  [main] com.alibaba.nacos.client.logging.NacosLogging.loadConfiguration:64 : Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from null
+2024-07-12 11:03:34.727 WARN  [main] com.netflix.config.sources.URLConfigurationSource.<init>:126 : No URLs will be polled as dynamic configuration sources.
+2024-07-12 11:03:34.730 WARN  [main] com.netflix.config.sources.URLConfigurationSource.<init>:126 : No URLs will be polled as dynamic configuration sources.
+2024-07-12 11:03:35.284 WARN  [main] com.alibaba.nacos.client.logging.NacosLogging.loadConfiguration:64 : Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from null
+2024-07-12 11:03:38.932 WARN  [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext.refresh:559 : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is java.lang.reflect.UndeclaredThrowableException
+2024-07-12 11:03:39.591 WARN  [main] com.alibaba.nacos.client.naming.shutdown:74 : [NamingHttpClientManager] Start destroying NacosRestTemplate
+2024-07-12 11:03:39.591 WARN  [com.alibaba.nacos.client.naming.updater.0] com.alibaba.nacos.client.naming.run:198 : [NA] failed to update serviceName: DEFAULT_GROUP@@provider-demo
+com.alibaba.nacos.api.exception.NacosException: Request nacos server failed: 
+	at com.alibaba.nacos.client.naming.remote.gprc.NamingGrpcClientProxy.requestToServer(NamingGrpcClientProxy.java:288)
+	at com.alibaba.nacos.client.naming.remote.gprc.NamingGrpcClientProxy.queryInstancesOfService(NamingGrpcClientProxy.java:168)
+	at com.alibaba.nacos.client.naming.remote.NamingClientProxyDelegate.queryInstancesOfService(NamingClientProxyDelegate.java:110)
+	at com.alibaba.nacos.client.naming.core.ServiceInfoUpdateService$UpdateTask.run(ServiceInfoUpdateService.java:178)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: com.alibaba.nacos.api.exception.NacosException: Client not connected, current status:STARTING
+	at com.alibaba.nacos.common.remote.client.RpcClient.request(RpcClient.java:651)
+	at com.alibaba.nacos.common.remote.client.RpcClient.request(RpcClient.java:631)
+	at com.alibaba.nacos.client.naming.remote.gprc.NamingGrpcClientProxy.requestToServer(NamingGrpcClientProxy.java:278)
+	... 11 common frames omitted
+2024-07-12 11:03:39.591 WARN  [main] com.alibaba.nacos.client.naming.shutdown:81 : [NamingHttpClientManager] Destruction of the end
+2024-07-12 11:03:39.592 WARN  [main] com.alibaba.nacos.client.naming.shutdown:74 : [NamingHttpClientManager] Start destroying NacosRestTemplate
+2024-07-12 11:03:39.593 WARN  [main] com.alibaba.nacos.client.naming.shutdown:81 : [NamingHttpClientManager] Destruction of the end
+2024-07-12 11:03:42.149 WARN  [Thread-18] com.alibaba.nacos.common.notify.NotifyCenter.shutdown:136 : [NotifyCenter] Start destroying Publisher
+2024-07-12 11:03:42.149 WARN  [Thread-21] com.alibaba.nacos.common.http.HttpClientBeanHolder.shutdown:108 : [HttpClientBeanHolder] Start destroying common HttpClient
+2024-07-12 11:03:42.149 WARN  [Thread-18] com.alibaba.nacos.common.notify.NotifyCenter.shutdown:153 : [NotifyCenter] Destruction of the end
+2024-07-12 11:03:42.149 WARN  [Thread-21] com.alibaba.nacos.common.http.HttpClientBeanHolder.shutdown:114 : [HttpClientBeanHolder] Destruction of the end
+2024-07-12 11:08:07.698 WARN  [main] com.alibaba.nacos.client.logging.NacosLogging.loadConfiguration:64 : Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from null
+2024-07-12 11:08:08.094 WARN  [main] com.alibaba.nacos.client.logging.NacosLogging.loadConfiguration:64 : Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from null
+2024-07-12 11:08:09.850 WARN  [main] com.netflix.config.sources.URLConfigurationSource.<init>:126 : No URLs will be polled as dynamic configuration sources.
+2024-07-12 11:08:09.852 WARN  [main] com.netflix.config.sources.URLConfigurationSource.<init>:126 : No URLs will be polled as dynamic configuration sources.
+2024-07-12 11:08:10.393 WARN  [main] com.alibaba.nacos.client.logging.NacosLogging.loadConfiguration:64 : Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from null
+2024-07-12 12:14:54.932 WARN  [Thread-17] com.alibaba.nacos.common.notify.NotifyCenter.shutdown:136 : [NotifyCenter] Start destroying Publisher
+2024-07-12 12:14:54.932 WARN  [Thread-20] com.alibaba.nacos.common.http.HttpClientBeanHolder.shutdown:108 : [HttpClientBeanHolder] Start destroying common HttpClient
+2024-07-12 12:14:54.932 WARN  [Thread-17] com.alibaba.nacos.common.notify.NotifyCenter.shutdown:153 : [NotifyCenter] Destruction of the end
+2024-07-12 12:14:54.933 WARN  [Thread-20] com.alibaba.nacos.common.http.HttpClientBeanHolder.shutdown:114 : [HttpClientBeanHolder] Destruction of the end
+2024-07-12 12:15:00.660 WARN  [main] com.alibaba.nacos.client.logging.NacosLogging.loadConfiguration:64 : Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from null
+2024-07-12 12:15:01.048 WARN  [main] com.alibaba.nacos.client.logging.NacosLogging.loadConfiguration:64 : Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from null
+2024-07-12 12:15:02.821 WARN  [main] com.netflix.config.sources.URLConfigurationSource.<init>:126 : No URLs will be polled as dynamic configuration sources.
+2024-07-12 12:15:02.824 WARN  [main] com.netflix.config.sources.URLConfigurationSource.<init>:126 : No URLs will be polled as dynamic configuration sources.
+2024-07-12 12:15:03.358 WARN  [main] com.alibaba.nacos.client.logging.NacosLogging.loadConfiguration:64 : Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from null
+2024-07-12 13:36:19.903 WARN  [Thread-21] com.alibaba.nacos.common.http.HttpClientBeanHolder.shutdown:108 : [HttpClientBeanHolder] Start destroying common HttpClient
+2024-07-12 13:36:19.903 WARN  [Thread-18] com.alibaba.nacos.common.notify.NotifyCenter.shutdown:136 : [NotifyCenter] Start destroying Publisher
+2024-07-12 13:36:19.903 WARN  [Thread-18] com.alibaba.nacos.common.notify.NotifyCenter.shutdown:153 : [NotifyCenter] Destruction of the end
+2024-07-12 13:36:19.904 WARN  [Thread-21] com.alibaba.nacos.common.http.HttpClientBeanHolder.shutdown:114 : [HttpClientBeanHolder] Destruction of the end
+2024-07-12 13:36:24.789 WARN  [main] com.alibaba.nacos.client.logging.NacosLogging.loadConfiguration:64 : Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from null
+2024-07-12 13:36:25.182 WARN  [main] com.alibaba.nacos.client.logging.NacosLogging.loadConfiguration:64 : Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from null
+2024-07-12 13:36:26.965 WARN  [main] com.netflix.config.sources.URLConfigurationSource.<init>:126 : No URLs will be polled as dynamic configuration sources.
+2024-07-12 13:36:26.967 WARN  [main] com.netflix.config.sources.URLConfigurationSource.<init>:126 : No URLs will be polled as dynamic configuration sources.
+2024-07-12 13:36:27.549 WARN  [main] com.alibaba.nacos.client.logging.NacosLogging.loadConfiguration:64 : Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from null
+2024-07-12 14:18:05.700 WARN  [Thread-18] com.alibaba.nacos.common.notify.NotifyCenter.shutdown:136 : [NotifyCenter] Start destroying Publisher
+2024-07-12 14:18:05.700 WARN  [Thread-21] com.alibaba.nacos.common.http.HttpClientBeanHolder.shutdown:108 : [HttpClientBeanHolder] Start destroying common HttpClient
+2024-07-12 14:18:05.700 WARN  [Thread-18] com.alibaba.nacos.common.notify.NotifyCenter.shutdown:153 : [NotifyCenter] Destruction of the end
+2024-07-12 14:18:05.701 WARN  [Thread-21] com.alibaba.nacos.common.http.HttpClientBeanHolder.shutdown:114 : [HttpClientBeanHolder] Destruction of the end
+2024-07-12 14:18:11.118 WARN  [main] com.alibaba.nacos.client.logging.NacosLogging.loadConfiguration:64 : Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from null
+2024-07-12 14:18:11.501 WARN  [main] com.alibaba.nacos.client.logging.NacosLogging.loadConfiguration:64 : Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from null
+2024-07-12 14:18:13.300 WARN  [main] com.netflix.config.sources.URLConfigurationSource.<init>:126 : No URLs will be polled as dynamic configuration sources.
+2024-07-12 14:18:13.303 WARN  [main] com.netflix.config.sources.URLConfigurationSource.<init>:126 : No URLs will be polled as dynamic configuration sources.
+2024-07-12 14:18:13.844 WARN  [main] com.alibaba.nacos.client.logging.NacosLogging.loadConfiguration:64 : Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from null
+2024-07-12 14:20:01.874 WARN  [main] com.alibaba.nacos.client.logging.NacosLogging.loadConfiguration:64 : Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from null
+2024-07-12 14:20:02.259 WARN  [main] com.alibaba.nacos.client.logging.NacosLogging.loadConfiguration:64 : Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from null
+2024-07-12 14:20:04.050 WARN  [main] com.netflix.config.sources.URLConfigurationSource.<init>:126 : No URLs will be polled as dynamic configuration sources.
+2024-07-12 14:20:04.053 WARN  [main] com.netflix.config.sources.URLConfigurationSource.<init>:126 : No URLs will be polled as dynamic configuration sources.
+2024-07-12 14:20:04.608 WARN  [main] com.alibaba.nacos.client.logging.NacosLogging.loadConfiguration:64 : Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from null

@@ -1,0 +1,141 @@
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+
+    <property name="LOG_CONTEXT_NAME" value="sc"/>
+    <!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径-->
+    <property name="LOG_HOME" value="logs"/>
+    <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+    <!--console控制台格式-->
+    <property name="CONSOLE_LOG_PATTERN"
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(%-5level) [%magenta(%thread)] %cyan(%logger{60}.%method:%line) : %msg%n"/>
+    <!--文件格式-->
+    <property name="FILE_LOG_PATTERN"
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{60}.%method:%L : %msg%n"/>
+    <!--日志文件名保存格式-->
+    <property name="LOG_SAVE_NAME" value="%d{yyyy-MM-dd}.%i.log.gz"/>
+    <!--日志保存天数-->
+    <property name="LOG_SAVE_TIME" value="30"/>
+    <!--日志最大尺寸-->
+    <property name="LOG_MAX_SIZE" value="20MB"/>
+    <!--日志队列大小-->
+    <property name="LOG_QUEUE_SIZE" value="512"/>
+
+    <!-- 定义日志上下文的名称 -->
+    <contextName>${LOG_CONTEXT_NAME}</contextName>
+    <!-- 控制台输出 -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            <charset>utf-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 按照每天生成日志文件 -->
+    <appender name="info.file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/info.log</file>
+        <!-- 追加日志到原文件结尾 -->
+        <Prudent>false</Prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <FileNamePattern>${LOG_HOME}/info/info.${LOG_SAVE_NAME}</FileNamePattern>
+            <!-- 日志文件最大尺寸 -->
+            <maxFileSize>${LOG_MAX_SIZE}</maxFileSize>
+            <!--日志文件保留天数-->
+            <MaxHistory>${LOG_SAVE_TIME}</MaxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>utf-8</charset>
+        </encoder>
+        <!-- 过滤器,只写入error级别log -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+    <!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
+    <appender name="info.file.async" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>${LOG_QUEUE_SIZE}</queueSize>
+        <includeCallerData>true</includeCallerData>
+        <appender-ref ref="info.file"/>
+    </appender>
+
+    <!-- 按照每天生成日志文件 -->
+    <appender name="warn.file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/warn.log</file>
+        <!-- 追加日志到原文件结尾 -->
+        <Prudent>false</Prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <FileNamePattern>${LOG_HOME}/warn/warn.${LOG_SAVE_NAME}</FileNamePattern>
+            <!-- 日志文件最大尺寸 -->
+            <maxFileSize>${LOG_MAX_SIZE}</maxFileSize>
+            <!--日志文件保留天数-->
+            <MaxHistory>${LOG_SAVE_TIME}</MaxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>utf-8</charset>
+        </encoder>
+        <!-- 过滤器,只写入error级别log -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+    <!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
+    <appender name="warn.file.async" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>${LOG_QUEUE_SIZE}</queueSize>
+        <includeCallerData>true</includeCallerData>
+        <appender-ref ref="warn.file"/>
+    </appender>
+
+    <!-- 按照每天生成日志文件 -->
+    <appender name="error.file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/error.log</file>
+        <!-- 追加日志到原文件结尾 -->
+        <Prudent>false</Prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <FileNamePattern>${LOG_HOME}/error/error.${LOG_SAVE_NAME}</FileNamePattern>
+            <!-- 日志文件最大尺寸 -->
+            <maxFileSize>${LOG_MAX_SIZE}</maxFileSize>
+            <!--日志文件保留天数-->
+            <MaxHistory>${LOG_SAVE_TIME}</MaxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>utf-8</charset>
+        </encoder>
+        <!-- 过滤器,只写入error级别log -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+    <!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
+    <appender name="error.file.async" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>${LOG_QUEUE_SIZE}</queueSize>
+        <includeCallerData>true</includeCallerData>
+        <appender-ref ref="error.file"/>
+    </appender>
+
+    <logger name="org.apache.poi.openxml4j.opc.ZipPackage" level="ERROR" additivity="false">
+        <appender-ref ref="console"/>
+    </logger>
+
+    <!--  日志输出级别 -->
+    <!-- TRACE\DEBUG\INFO\WARN\ERROR\FATAL\OFF -->
+    <root level="INFO">
+        <appender-ref ref="console"/>
+        <appender-ref ref="info.file.async"/>
+        <appender-ref ref="warn.file.async"/>
+        <appender-ref ref="error.file.async"/>
+    </root>
+
+</configuration>

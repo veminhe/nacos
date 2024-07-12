@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: consumer-demo # Spring 应用名
+  cloud:
+    # Nacos 作为注册中心的配置项，对应 NacosDiscoveryProperties 配置类
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848 # Nacos 服务器地址
+        service: ${spring.application.name} # 注册到Nacos的服务名，不配置默认为应用名
+        username: nacos  # 如果开启Nacos权限认证nacos.core.auth.enabled=true, 需要配置上账号密码
+        password: nacos
+  datasource:
+    dynamic:
+      primary: master
+      strict: false
+      datasource:
+        master:
+          url: jdbc:mysql://127.0.0.1:3306/hmblogs?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+          username: root
+          password: 123456
+        powerjob:
+          url: jdbc:mysql://127.0.0.1:3306/slave?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+          username: root
+          password: 123456
+server:
+  port: 18084
+

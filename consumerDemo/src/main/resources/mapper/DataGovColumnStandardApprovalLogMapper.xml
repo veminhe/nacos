@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.DataGovColumnStandardApprovalLogMapper">
+    <select id="myPage" resultType="org.example.vo.ColumnStandardApprovalLogPageVO">
+        SELECT id, column_standard_id, approval_type, audit_status, audit_result,
+               create_user, create_time, update_user, update_time, application_reason,
+               standard_current_version_id, standard_rollback_version_id
+        FROM data_gov_column_standard_approval_log t
+        ORDER BY t.id DESC
+    </select>
+</mapper>
